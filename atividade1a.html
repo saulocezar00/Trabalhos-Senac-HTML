@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 1b</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url("imagem/6k.jpg"); /* Substitua pelo caminho da sua imagem */
+            background-size: cover;
+            background-position: center;
+            font-family: 'Roboto', sans-serif;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.8); /* Fundo semi-transparente */
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .container p {
+            font-size: 1.5em; /* Aumentei o tamanho da fonte */
+            margin: 10px 0;
+        }
+        .container button {
+            font-size: 1.5em; /* Aumentei o tamanho da fonte */
+            padding: 10px 20px;
+            margin: 20px 0;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+        }
+        .container button:hover {
+            background-color: #0056b3;
+        }
+        .aprovado {
+            color: blue;
+            font-weight: bold;
+            font-size: 1.5em; /* Aumentei o tamanho da fonte */
+        }
+        .reprovado {
+            color: red;
+            font-weight: bold;
+            font-size: 1.5em; /* Aumentei o tamanho da fonte */
+        }
+    </style>
+    <script>
+        function calcularMedia() {
+            let nota1 = parseFloat(document.getElementById("nota1").value);
+            let nota2 = parseFloat(document.getElementById("nota2").value);
+            let media = (nota1 + nota2) / 2;
+            let situacao = media >= 6 ? "Aprovado" : "Reprovado";
+            let cor = media >= 6 ? "aprovado" : "reprovado";
+
+            document.getElementById("media").innerHTML = media.toFixed(2); // Mostrar apenas 2 casas decimais
+            document.getElementById("situacao").innerHTML = situacao;
+            document.getElementById("situacao").className = cor;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <p>Nota 1: <input type="text" id="nota1"></p>
+        <p>Nota 2: <input type="text" id="nota2"></p>
+        <button onclick="calcularMedia()">Calcular Média</button>
+        <p>Média: <span id="media"></span></p>
+        <p>Situação: <span id="situacao"></span></p>
+    </div>
+</body>
+</html>

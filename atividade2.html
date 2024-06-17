@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 2</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url("imagem/7k.avif"); /* Substitua pelo caminho da sua imagem */
+            background-size: cover;
+            background-position: center;
+            font-family: 'Roboto', sans-serif;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.8); /* Fundo semi-transparente */
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .container p {
+            font-size: 1.5em; /* Aumentei o tamanho da fonte */
+            margin: 10px 0;
+        }
+        .container button {
+            font-size: 1.5em; /* Aumentei o tamanho da fonte */
+            padding: 10px 20px;
+            margin: 20px 0;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+        }
+        .container button:hover {
+            background-color: #0056b3;
+        }
+        .normal {
+            color: green;
+            font-weight: bold;
+            font-size: 1.5em;
+        }
+        .alerta {
+            color: orange;
+            font-weight: bold;
+            font-size: 1.5em;
+        }
+        .perigo {
+            color: red;
+            font-weight: bold;
+            font-size: 1.5em;
+        }
+    </style>
+    <script>
+        function calcularIMC() {
+            let peso = parseFloat(document.getElementById("peso").value);
+            let altura = parseFloat(document.getElementById("altura").value);
+            let imc = peso / (altura * altura);
+            let situacao, cor;
+
+            if (imc < 18.5) {
+                situacao = "Muito abaixo do peso";
+                cor = "perigo";
+            } else if (imc < 24.9) {
+                situacao = "Normal";
+                cor = "normal";
+            } else if (imc < 29.9) {
+                situacao = "Acima do peso";
+                cor = "alerta";
+            } else if (imc < 34.9) {
+                situacao = "Obesidade I";
+                cor = "perigo";
+            } else if (imc < 39.9) {
+                situacao = "Obesidade II";
+                cor = "perigo";
+            } else {
+                situacao = "Obesidade III";
+                cor = "perigo";
+            }
+
+            document.getElementById("imc").innerHTML = imc.toFixed(2);
+            document.getElementById("situacao").innerHTML = situacao;
+            document.getElementById("situacao").className = cor;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <p>Peso: <input type="text" id="peso"></p>
+        <p>Altura: <input type="text" id="altura"></p>
+        <button onclick="calcularIMC()">Calcular IMC</button>
+        <p>IMC: <span id="imc"></span></p>
+        <p>Situação: <span id="situacao"></span></p>
+    </div>
+</body>
+</html>

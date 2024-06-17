@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 3</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url("imagem/8k"); /* Substitua pelo caminho da sua imagem */
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.8); /* Fundo semi-transparente */
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .container p {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+        .container button {
+            font-size: 1.2em;
+            padding: 10px 20px;
+            margin: 20px 0;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+        }
+        .container button:hover {
+            background-color: #0056b3;
+        }
+        #lista {
+            list-style-type: none;
+            padding: 0;
+        }
+        #lista li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p>Texto do item: <input type="text" id="textoItem"></p>
+        <p>Cor do item:
+            <input type="radio" name="cores" value="red"> Vermelho
+            <input type="radio" name="cores" value="green"> Verde
+            <input type="radio" name="cores" value="blue"> Azul
+        </p>
+        <button onclick="adicionarItem()">Adicionar Item</button>
+        <ul id="lista"></ul>
+    </div>
+
+    <script>
+        function adicionarItem() {
+            let texto = document.getElementById("textoItem").value;
+            let cor = document.querySelector('input[name="cores"]:checked').value;
+
+            let li = document.createElement("li");
+            li.textContent = texto;
+            li.style.color = cor;
+
+            document.getElementById("lista").appendChild(li);
+        }
+    </script>
+</body>
+</html>
